@@ -1,0 +1,5 @@
+Esoteric Programming Languages
+https://en.wikipedia.org/wiki/Shakespeare_Programming_Language
+https://en.wikipedia.org/wiki/Brainfuck
+https://en.wikipedia.org/wiki/LOLCODE
+
