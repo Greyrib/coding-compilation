@@ -12,6 +12,7 @@ public class ExperienceHandler : MonoBehaviour
     public Image redExperienceBar;
     public TextMeshProUGUI factionLevelTextBlue;
     public TextMeshProUGUI factionLevelTextRed;
+    public GameObject levelUpEffect;
 
     [Header ("Dynamics")]
     public List<int> experiencePoints;
@@ -80,12 +81,30 @@ public class ExperienceHandler : MonoBehaviour
 
         if (levelIncremented [0] == true) {
             // VFX for all BLUE faction heroes
+            if (PlayersHandler.instance != null && PlayersHandler.instance.playersBlue != null && levelUpEffect != null) {
+                for (int b = 0; b < PlayersHandler.instance.playersBlue.Count; b++) {
+                    if (PlayersHandler.instance.playersBlue[b] != null && PlayersHandler.instance.playersBlue[b].playerUnit != null) {
+                        GameObject effect = Instantiate (levelUpEffect, PlayersHandler.instance.playersBlue[b].playerUnit.transform.position, PlayersHandler.instance.playersBlue[b].playerUnit.transform.rotation) as GameObject;
+                        effect.name = levelUpEffect.name;
+                    }
+                }
+            }
+            
             Debug.Log ("BLUE leveled up! " + Time.time.ToString ("F2"));
             factionLevels[0] += 1;
         }
 
         if (levelIncremented [1] == true) {
             // VFX for all RED faction heroes
+            if (PlayersHandler.instance != null && PlayersHandler.instance.playersRed != null && levelUpEffect != null) {
+                for (int b = 0; b < PlayersHandler.instance.playersRed.Count; b++) {
+                    if (PlayersHandler.instance.playersRed[b] != null && PlayersHandler.instance.playersRed[b].playerUnit != null) {
+                        GameObject effect = Instantiate (levelUpEffect, PlayersHandler.instance.playersRed[b].playerUnit.transform.position, PlayersHandler.instance.playersRed[b].playerUnit.transform.rotation) as GameObject;
+                        effect.name = levelUpEffect.name;
+                    }
+                }
+            }
+
             Debug.Log ("RED leveled up! " + Time.time.ToString ("F2"));
             factionLevels[1] += 1;
         }
