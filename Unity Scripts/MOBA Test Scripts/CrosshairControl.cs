@@ -15,8 +15,11 @@ public class CrosshairControl : MonoBehaviour
     public Transform cursorFriendlyUnit;
     public Transform cursorHostileUnit;
 
+    Plane zeroplane; // Used for cursor-placing [Method 2]
+
     void Awake () {
         if (instance == null) instance = this; else Destroy (this);
+        zeroplane = new Plane (Vector3.up, Vector3.zero); // Create zeroplane for Method 2
     }
 
     void Update () {
@@ -26,10 +29,20 @@ public class CrosshairControl : MonoBehaviour
     }
 
     void Raycast_Positioning () {
+        // New Method - based on (infinite) zero-plane
+        Ray mouseRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+        float distance = 0f;
+        if (zeroplane.Raycast (mouseRay, out distance)) {
+            transform.position = mouseRay.GetPoint (distance);
+        }
+
+        // Old Method - Only raycast on terrain-ground
+        /*
         RaycastHit obstacle;
         if (Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out obstacle, 1000f, crosshairLayers) && obstacle.transform != null) {
             transform.position = obstacle.point;
         }
+        */
     }
 
     void Raycast_UnitIdentifying () {
