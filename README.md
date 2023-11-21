@@ -4,4 +4,4 @@
 <!-- ![first ever hyper-dyper imagery of current mt project status](MT_State1st.png) -->
 <!-- (https://github.com/Greyrib/coding-compilation/blob/main/MT_State2nd_AW.png?raw=true) -->
 <img src="MT_State1st.png" width="960"/>
-<img src="MT_State2nd_AW.png" width="960"/>
+<img src="MT_State2nd_AW.png"/>
