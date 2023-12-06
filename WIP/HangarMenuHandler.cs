@@ -19,6 +19,8 @@ public class HangarMenuHandler : MonoBehaviour
     public Camera texCam;
     [Space (5)] // Stuff for initial list
     public GameObject genericButtonPrefab;
+    public Transform selectionListParent;
+    public RectTransform selectionListResizeable;
 
     [Header ("Dynamics")]
     public bool playerSecured; // Whether player is parked on homebase-platform and at zero-inputs & zero-velocity'd
@@ -75,7 +77,7 @@ public class HangarMenuHandler : MonoBehaviour
 
         Position_TexCam ();
 
-        // TODO Create_Selection_List() || E.g. 'Switch Aeroframe - Primary - Secondary - Secondary - Tertiary - Auxilliary' etc.
+        // TODO Create_Selection_List()
         // > Follow-up to above ; make Create_ModuleChoices () || Left-wise expanding (more appearing, really) menu, of choices of modules available for selected moduleslot / modulegroup [NOTE this isn't really for calling here - this is just a note for making it]
         // ---------------------------------------
 
@@ -116,6 +118,23 @@ public class HangarMenuHandler : MonoBehaviour
         if (texCam != null && MatchHandler.instance != null && MatchHandler.instance.player != null) {
             Transform player = MatchHandler.instance.player.transform;
             texCam.transform.position = player.position + (player.forward * 0f) + (player.up * 5f);
+        }
+    }
+
+    void Create_Selection_List () {
+        if (genericButtonPrefab != null) {
+            // E.g. 'Switch Aeroframe - Primary - Secondary - Secondary - Tertiary - Auxilliary' etc.
+            if (selectionListParent != null) {
+                // Aeroframe button
+                GameObject aeroframeBtn = Instantiate (genericButtonPrefab, selectionListParent) as GameObject;
+                aeroframeBtn.name = genericButtonPrefab.name + "_AeroframeSelection";
+                //aeroframeBtn.GetComponent<
+            }
+
+            if (selectionListResizeable != null) {
+
+            }
+
         }
     }
 
