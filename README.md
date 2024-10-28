@@ -5,7 +5,7 @@
 <!-- (https://github.com/Greyrib/coding-compilation/blob/main/MT_State2nd_AW.png?raw=true) -->
 
 <h3>A couple of screenshots of stuff I've worked on.
-Not a very exhaustive list, since a span of 10+ years & humonguous project folders include lots more stuff.</h3>
+Not asuper exhaustive list, since a span of 10+ years & humonguous project folders include lots more stuff, but sufficient for an idea of the range.</h3>
 
 
 <h3>Randomnizing 2D tiles based on noise</h3>
